@@ -2,9 +2,9 @@ require 'bundler'
 Bundler.require
 require 'digest'
 
-FILTER_SIZE = 150000
+FILTER_SIZE = ARGV.first.to_i rescue 150000
 
-$bf = BloomFilter::Native.new(:size => FILTER_SIZE, hash: 13, :raise => false)
+$bf = BloomFilter::Native.new(:size => FILTER_SIZE, :hashes => 13, :raise => false)
 
 def gen_random_word(list, method, index)
   rand_word = Digest::SHA256.hexdigest(index.to_s)
