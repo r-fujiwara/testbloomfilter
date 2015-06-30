@@ -1,3 +1,13 @@
+# GET START
+
+```
+$ git@github.com:r-fujiwara/testbloomfilter.git
+$ cd testbloomfilter
+$ bundle
+$ ruby test.rb 10000
+```
+
+
 # testbloomfilter
 
 [このサンプル](https://github.com/igrigorik/bloomfilter-rb/blob/master/examples/simple-native.rb)と、[こちら](http://hur.st/bloomfilter?n=150000&p=1.0E-4)ののリンクにしたがって、
