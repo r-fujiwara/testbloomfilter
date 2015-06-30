@@ -10,7 +10,7 @@ def gen_random_word(list, method, index)
   rand_word = Digest::SHA256.hexdigest(index.to_s)
   prev_length = list.length
   list << rand_word
-  current_length = list.uniq.length
+  current_length = list.uniq!.length
   if prev_length == current_length
     puts "********duplicate!...#{rand_word}***********"
     gen_random_word(list)
@@ -22,7 +22,9 @@ end
 
 def set_random_unique_words(size, method)
   list = []
-  size.times do |i|
+  index_list = (1..size).to_a
+  Parallel.each(index_list, in_threads: 8) do |i|
+  #size.times do |i|
     puts "index...#{i}"
     gen_random_word(list, method, i)
   end
