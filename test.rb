@@ -54,5 +54,5 @@ other_words.each do |k, v|
 end
 
 puts "false positive number ....#{num}"
-sleep 100
+sleep 1
 $bf.stats
